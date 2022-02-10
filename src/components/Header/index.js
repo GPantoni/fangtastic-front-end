@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import SideBar from "../SideBar/index";
+import cart from "../../assets/cart.svg";
+import menu from "../../assets/menu.svg";
 
 export default function Header({ setType }) {
   const [sideBar, setSideBar] = useState(false);
@@ -8,13 +10,9 @@ export default function Header({ setType }) {
   return (
     <HeaderBox>
       {sideBar && <SideBar setSideBar={setSideBar} setType={setType} />}
-      <img
-        src="./assets/menu.svg"
-        alt="menu"
-        onClick={() => setSideBar(true)}
-      />
+      <img src={menu} alt="menu" onClick={() => setSideBar(true)} />
       <h1>FANGTASTIC</h1>
-      <img src="./assets/cart.svg" alt="" />
+      <img src={cart} alt="" />
     </HeaderBox>
   );
 }
