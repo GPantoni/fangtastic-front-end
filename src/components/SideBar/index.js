@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export default function SideBar({ setType, setSideBar }) {
+  function handleFilter(filter) {
+    setType(filter);
+    setSideBar(false);
+  }
+
   return (
     <SideBarBox>
       <Left>
         <h1>FILTROS:</h1>
-        <p onClick={() => setType("")}>Todos</p>
-        <p onClick={() => setType("vestuario")}>Vestuario</p>
-        <p onClick={() => setType("comida")}>Comidas</p>
-        <p onClick={() => setType("acessorio")}>Acessorios</p>
+        <p onClick={() => handleFilter("")}>Todos</p>
+        <p onClick={() => handleFilter("vestuario")}>Vestuario</p>
+        <p onClick={() => handleFilter("comida")}>Comidas</p>
+        <p onClick={() => handleFilter("acessorio")}>Acessorios</p>
       </Left>
       <Right onClick={() => setSideBar(false)}></Right>
     </SideBarBox>

@@ -6,11 +6,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/cart" element={""}></Route>
         {/* <Route path="/sign-in" element={<Sign-in />}></Route>
             <Route path="/sign-up" element={<Sign-up />}></Route>
             <Route path="/home" element={<Sign-up />}></Route>
             <Route path="/services" element={<Services />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
             <Route path="/checkout" element={<Checkout />}></Route> */}
       </Routes>
     </BrowserRouter>
