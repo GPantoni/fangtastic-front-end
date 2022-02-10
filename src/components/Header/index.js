@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import SideBar from "../SideBar/index";
 import cart from "../../assets/cart.svg";
@@ -6,13 +7,13 @@ import menu from "../../assets/menu.svg";
 
 export default function Header({ setType }) {
   const [sideBar, setSideBar] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <HeaderBox>
       {sideBar && <SideBar setSideBar={setSideBar} setType={setType} />}
       <img src={menu} alt="menu" onClick={() => setSideBar(true)} />
       <h1>FANGTASTIC</h1>
-      <img src={cart} alt="" />
+      <img src={cart} alt="cart" onClick={() => navigate("/cart")} />
     </HeaderBox>
   );
 }

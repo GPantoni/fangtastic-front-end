@@ -9,8 +9,8 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />}></Route>
         {/* <Route path="/sign-in" element={<SignIn />}></Route> */}
         <Route path="/products" element={<Products />}></Route>
-        {/* <Route path="/services" element={<Services />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        {/* <Route path="/cart" element={""}></Route>
+        <Route path="/services" element={<Services />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route> */}
       </Routes>
     </BrowserRouter>
