@@ -19,7 +19,7 @@ export default function Header({ setType }) {
     <HeaderBox>
       {sideBar && <SideBar setSideBar={setSideBar} setType={setType} />}
       <img src={MENU} alt='menu' onClick={() => setSideBar(true)} />
-      <h1>FANGTASTIC</h1>
+      <h1 className='logo'>fangtastic</h1>
       <img src={CART} alt='' onClick={() => navigate('/cart')} />
     </HeaderBox>
   );

@@ -6,11 +6,8 @@ export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
 
     function addToCart(id, cartList) {
-        console.log(cartList)
         cartList.push(id)
-        setCart(cartList);
-
-        localStorage.setItem('cart', JSON.stringify(cart))        
+        localStorage.setItem('cart', JSON.stringify(cartList))        
 
     }
 
