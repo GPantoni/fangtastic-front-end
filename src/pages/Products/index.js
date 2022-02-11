@@ -13,7 +13,7 @@ export default function Products() {
 
   function checkCart() {
 
-    if(localStorage.getItem('cart').length > 0) {
+    if(localStorage.getItem('cart')) {
       cartList = JSON.parse(localStorage.getItem('cart'))
     }
   }

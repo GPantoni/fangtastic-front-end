@@ -6,7 +6,19 @@ export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
 
     function addToCart(id, cartList) {
-        cartList.push(id)
+        if(cartList.length > 0) {
+            cartList.map(cartItem => {
+                if(id === cartList.id) {
+                    cartItem = Object.assign(cartItem, {quantity: cartItem.quantity + 1})
+                    return;
+                }
+                cartList.push({id: id, quantity: 1})
+            })
+        } else {
+            cartList.push({id: id, quantity: 1})
+        }
+
+       // cartList.push(id)
         localStorage.setItem('cart', JSON.stringify(cartList))        
 
     }
