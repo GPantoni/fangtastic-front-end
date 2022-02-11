@@ -7,8 +7,8 @@ export default function SideBar({ setType, setSideBar }) {
         <h1>FILTROS:</h1>
         <p onClick={() => setType("")}>Todos</p>
         <p onClick={() => setType("vestuario")}>Vestuario</p>
-        <p onClick={() => setType("comida")}>Comidas</p>
-        <p onClick={() => setType("acessorio")}>Acessorios</p>
+        <p onClick={() => setType("comida")}>Alimentos</p>
+        <p onClick={() => setType("acessorio")}>Serviços</p>
       </Left>
       <Right onClick={() => setSideBar(false)}></Right>
     </SideBarBox>
