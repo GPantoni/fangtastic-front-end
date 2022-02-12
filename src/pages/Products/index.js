@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header/index";
-import Product from "../../components/Product/index";
+import BoxProduct from "../../components/BoxProduct/index";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -25,7 +25,7 @@ export default function Products() {
       <Header setType={setType} />
       <Container>
         {products.map((item) => (
-          <Product data={item} key={item._id} />
+          <BoxProduct data={item} key={item._id} />
         ))}
       </Container>
     </>

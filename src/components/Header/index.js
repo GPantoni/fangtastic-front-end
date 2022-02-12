@@ -4,14 +4,20 @@ import styled from "styled-components";
 import SideBar from "../SideBar/index";
 import cart from "../../assets/cart.svg";
 import menu from "../../assets/menu.svg";
+import arrow from "../../assets/arrow-undo.svg";
 
-export default function Header({ setType }) {
+export default function Header({ setType, toProducts }) {
   const [sideBar, setSideBar] = useState(false);
   const navigate = useNavigate();
+
   return (
     <HeaderBox>
       {sideBar && <SideBar setSideBar={setSideBar} setType={setType} />}
-      <img src={menu} alt="menu" onClick={() => setSideBar(true)} />
+      {toProducts ? (
+        <img src={arrow} alt="return" onClick={() => navigate("/products")} />
+      ) : (
+        <img src={menu} alt="menu" onClick={() => setSideBar(true)} />
+      )}
       <h1>FANGTASTIC</h1>
       <img src={cart} alt="cart" onClick={() => navigate("/cart")} />
     </HeaderBox>

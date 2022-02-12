@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Products, SignUp } from "./pages";
+import { Products, SignUp, Product } from "./pages";
 
 export default function App() {
   return (
@@ -9,6 +9,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />}></Route>
         {/* <Route path="/sign-in" element={<SignIn />}></Route> */}
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/product/:idProduct" element={<Product/>}></Route>
         {/* <Route path="/cart" element={""}></Route>
         <Route path="/services" element={<Services />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route> */}
