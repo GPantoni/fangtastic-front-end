@@ -1,9 +1,7 @@
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-
+import { useState, useEffect } from "react";
 import Header from "../../components/Header/index";
-import Product from "../../components/Product/index";
-
+import BoxProduct from "../../components/BoxProduct/index";
 import { Container } from "./style";
 
 export default function Products() {
@@ -12,9 +10,8 @@ export default function Products() {
   let cartList = [];
 
   function checkCart() {
-
-    if(localStorage.getItem('cart')) {
-      cartList = JSON.parse(localStorage.getItem('cart'))
+    if (localStorage.getItem("cart")) {
+      cartList = JSON.parse(localStorage.getItem("cart"));
     }
   }
 
@@ -37,7 +34,7 @@ export default function Products() {
       <Header setType={setType} />
       <Container>
         {products.map((item) => (
-          <Product data={item} key={item._id} cartList={cartList}/>
+          <BoxProduct data={item} key={item._id} cartList={cartList} />
         ))}
       </Container>
     </>

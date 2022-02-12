@@ -1,6 +1,6 @@
 import AuthContext from "./contexts/AuthContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Products, SignUp, SignIn, Home, Cart } from "./pages";
+import { Products, SignUp, SignIn, Home, Cart, Product } from "./pages";
 import { useState } from "react";
 import { CartProvider } from "./contexts/CartContext";
 
@@ -23,6 +23,7 @@ export default function App() {
             <Route path="/sign-up" element={<SignUp />}></Route>
             <Route path="/sign-in" element={<SignIn />}></Route>
             <Route path="/products" element={<Products />}></Route>
+            <Route path="/product/:idProduct" element={<Product />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
           </Routes>
         </BrowserRouter>

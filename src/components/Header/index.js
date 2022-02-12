@@ -6,10 +6,11 @@ import { HeaderBox } from './style';
 
 import CART from '../../assets/cart.svg';
 import MENU from '../../assets/menu.svg';
+import arrow from "../../assets/arrow-undo.svg";
 
 import CartContext from '../../contexts/CartContext';
 
-export default function Header({ setType }) {
+export default function Header({ setType, toProducts }) {
   const navigate = useNavigate();
   const [sideBar, setSideBar] = useState(false);
 
@@ -18,9 +19,13 @@ export default function Header({ setType }) {
   return (
     <HeaderBox>
       {sideBar && <SideBar setSideBar={setSideBar} setType={setType} />}
-      <img src={MENU} alt='menu' onClick={() => setSideBar(true)} />
+      {toProducts ? (
+        <img src={arrow} alt="return" onClick={() => navigate("/products")} />
+      ) : (
+        <img src={MENU} alt="menu" onClick={() => setSideBar(true)} />
+      )}
       <h1 className='logo'>fangtastic</h1>
-      <img src={CART} alt='' onClick={() => navigate('/cart')} />
+      <img src={CART} alt="cart" onClick={() => navigate("/cart")} />
     </HeaderBox>
   );
 }
