@@ -5,6 +5,6 @@ export default function Product(props) {
   return (<Wrapper className="wrapperDiv">
   <img src={props.image}/>
     <p >{props.name}</p>
-    <p>{props.price}</p>
+    <p>R$ {props.price}</p>
   </Wrapper>);
 }
