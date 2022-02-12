@@ -14,6 +14,7 @@ left: 0px;
 img {
   width: 30px;
   height: 50px;
+  object-fit: initial;
 }
 h1 {
   font-weight: bold;

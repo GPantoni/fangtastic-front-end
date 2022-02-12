@@ -7,7 +7,7 @@ export default function BoxProduct(props) {
   const { cart, addToCart } = useContext(CartContext);
 
   return (
-    <Link to={`/product/${data._id}`}>
+    <Link to={`/product/${props.data._id}`}>
       <ProductBox>
         <img src={props.data.image} alt="" />
         <p>{props.data.name}</p>
