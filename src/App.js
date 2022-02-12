@@ -1,7 +1,8 @@
 import AuthContext from "./contexts/AuthContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Products, SignUp, SignIn, Home } from "./pages";
+import { Products, SignUp, SignIn, Home, Cart } from "./pages";
 import { useState } from "react";
+import { CartProvider } from "./contexts/CartContext";
 
 export default function App() {
   const tokenOnLocalStorage = localStorage.getItem("token");
@@ -15,17 +16,17 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={{ token, setToken, setAndPersistToken }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/sign-up" element={<SignUp />}></Route>
-          <Route path="/sign-in" element={<SignIn />}></Route>
-          <Route path="/products" element={<Products />}></Route>
-          {/* <Route path="/cart" element={""}></Route>
-        <Route path="/services" element={<Services />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route> */}
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/sign-up" element={<SignUp />}></Route>
+            <Route path="/sign-in" element={<SignIn />}></Route>
+            <Route path="/products" element={<Products />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </AuthContext.Provider>
   );
 }

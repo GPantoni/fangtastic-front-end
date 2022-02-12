@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 * {
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+
 }
 a {
   text-decoration: none;
 }
 body {
   font-family: "Raleway", sans-serif;
+  background: #040403;
+  color: #D6C9C9;
+  padding: 20px;
+}
+img {
+  object-fit: cover;
   min-height: 100vh;
 }
 .root {
@@ -16,4 +23,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 36px;
+                                                
 }
