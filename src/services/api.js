@@ -19,8 +19,13 @@ function getProductsById(ids) {
     return promise;
 }
 
+async function signUp(user) {
+    await axios.post(`${BASE_URL}/sign-up`, user);
+  }
+  
+
 const api = {
-    addToCart, getCart, getProductsById
+    signUp, addToCart, getCart, getProductsById
 }
 
 export default api;
