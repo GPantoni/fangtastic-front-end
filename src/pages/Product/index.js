@@ -11,7 +11,7 @@ export default function Product() {
   const toProducts = true;
 
   useEffect(() => {
-    const promise = axios.get("http://localhost:5000/product", {
+    const promise = axios.get("https://back-fangtastic.herokuapp.com/product", {
       headers: {
         id: `${idProduct}`,
       },
