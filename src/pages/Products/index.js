@@ -16,7 +16,7 @@ export default function Products() {
   }
 
   useEffect(() => {
-    const promise = axios.get("http://localhost:5000/products", {
+    const promise = axios.get("https://back-fangtastic.herokuapp.com/products", {
       headers: {
         Type: `${type}`,
       },
