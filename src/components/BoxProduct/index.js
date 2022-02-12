@@ -1,36 +1,25 @@
-import styled from "styled-components";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ProductBox } from "./style";
+import CartContext from "../../contexts/CartContext";
 
-export default function BoxProduct({ data }) {
-  function handleBuy(){
-    console.log('Comprei o item ' + data.name)
-  }
- 
+export default function BoxProduct(props) {
+  const { cart, addToCart } = useContext(CartContext);
+
   return (
     <Link to={`/product/${data._id}`}>
-    <ProductBox>
-      <img src={data.image} alt="" /> 
-      <p>{data.name}</p>
-      <p>R${data.price},00</p>
-      <button onClick={handleBuy}>Buy</button>
-    </ProductBox>
+      <ProductBox>
+        <img src={props.data.image} alt="" />
+        <p>{props.data.name}</p>
+        <p>R${props.data.price},00</p>
+        <button
+          onClick={() => {
+            addToCart(props.data._id, props.cartList);
+          }}
+        >
+          Buy!
+        </button>
+      </ProductBox>
     </Link>
   );
 }
-
-const ProductBox = styled.div`
-  height: 250px;
-  width: 160px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #835dba;
-  border-radius: 5px;
-  text-align: center;
-  img {
-    height: 130px;
-    width: 150px;
-  }
-`;

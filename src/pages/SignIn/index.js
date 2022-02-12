@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
+import api from "../../services/api.js";
 import {
   Container,
   Form,
@@ -8,16 +8,17 @@ import {
   Button,
   StyledLink,
   Title,
-} from "../../components/FormComponents/";
+} from "../../components/FormComponents";
+import AuthContext from "../../contexts/AuthContext.js";
 
-export default function SignUp() {
+export default function SignIn() {
   const navigate = useNavigate();
 
+  const { setAndPersistToken } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   function handleChange({ target }) {
@@ -27,20 +28,15 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
-      alert("As senhas devem ser idênticas");
-      return;
-    }
-
     const user = { ...formData };
-    delete user.confirmPassword;
 
     try {
-      await api.signUp(user);
-      navigate("/sign-in");
+      const promise = await api.signIn(user);
+      setAndPersistToken(promise.data);
+      navigate("/products");
     } catch (error) {
       console.error(error);
-      alert("Erro! Tente novamente.");
+      alert("Erro, tente novamente");
     }
   }
 
@@ -48,14 +44,6 @@ export default function SignUp() {
     <Container>
       <Title>FangTastic</Title>
       <Form onSubmit={handleSubmit}>
-        <Input
-          placeholder="Nome"
-          type="text"
-          onChange={(e) => handleChange(e)}
-          name="name"
-          value={formData.name}
-          required
-        />
         <Input
           placeholder="E-mail"
           type="email"
@@ -72,18 +60,10 @@ export default function SignUp() {
           value={formData.password}
           required
         />
-        <Input
-          placeholder="Confirme a senha"
-          type="password"
-          onChange={(e) => handleChange(e)}
-          name="confirmPassword"
-          value={formData.confirmPassword}
-          required
-        />
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit">Entrar</Button>
       </Form>
-      <StyledLink onClick={() => navigate("/sign-in")}>
-        Já tem uma conta? Entre Agora
+      <StyledLink onClick={() => navigate("/sign-up")}>
+        Novo por aqui? Cadastre-se
       </StyledLink>
     </Container>
   );
