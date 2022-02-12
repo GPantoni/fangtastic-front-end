@@ -6,24 +6,23 @@ import { Container } from './style';
 import api from '../../services/api';
 
 export default function Cart() {
+  const [productData, setProductData] = useState(null);
   useEffect(getCart, []);
-  //contexto para itens no carrinho
 
   function getCart() {
     //GET cart
     //if logged in, get through api
-
-    const cart = JSON.parse(localStorage.getItem('cart'));
+    let cart = [];
     const cartIds = [];
-
-    console.log(cart);
+    if (localStorage.getItem('cart')) {
+      cart = JSON.parse(localStorage.getItem('cart'));
+    }
 
     cart.map((item) => {
       cartIds.push(item.id);
     });
-    console.log(cartIds);
 
-    getProductData();
+    getProductData(cartIds);
 
     //else, get from localstorage
     //either way, we end up with product ids for cart
@@ -31,16 +30,24 @@ export default function Cart() {
 
   function getProductData(ids) {
     const promise = api.getProductsById(ids);
+    promise.then((res) => {
+      setProductData(res.data);
+    });
+    promise.catch();
     //send ids to api
     //map res array into Product component
   }
-
+  if (!productData) {
+    return '';
+  }
   return (
     <>
+      {console.log(productData)}
       <Header />
       <Container>
-        <Product />
-        <Product />
+        {productData.map((product) => 
+          Product(product)
+        )}
         <button>Prosseguir para compra</button>
       </Container>
     </>

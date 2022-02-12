@@ -13,7 +13,10 @@ function getCart() {
 }
 
 function getProductsById(ids) {
-    axios.get(`${BASE_URL}/cart/products`, {params: ids })
+    const promise = axios.get(`${BASE_URL}/cart/products`, {headers: {
+        IDS: ids
+    } })
+    return promise;
 }
 
 const api = {
