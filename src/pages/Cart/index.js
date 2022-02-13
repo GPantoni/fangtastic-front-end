@@ -8,6 +8,7 @@ import api from '../../services/api';
 export default function Cart() {
   const [productData, setProductData] = useState(null);
   useEffect(getCart, []);
+  const toProducts = true
 
   function getCart() {
     //GET cart
@@ -42,8 +43,7 @@ export default function Cart() {
   }
   return (
     <>
-      {console.log(productData)}
-      <Header />
+      <Header toProducts={toProducts}/>
       <Container>
         {productData.map((product) => 
           Product(product)
