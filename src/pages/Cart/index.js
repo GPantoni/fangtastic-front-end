@@ -45,7 +45,7 @@ export default function Cart() {
   return (
     <>
       <Header />
-      <Container>
+      <Container >
         {productData.map((product) => 
           <Product product={product}/>
         )}

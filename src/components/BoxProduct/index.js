@@ -8,7 +8,7 @@ export default function BoxProduct(props) {
 
   return (
     
-      <ProductBox>
+      <ProductBox className="box-shadow">
         <Link to={`/product/${props.data._id}`}>
         <img src={props.data.image} alt="" />
         <p>{props.data.name}</p>
@@ -19,7 +19,7 @@ export default function BoxProduct(props) {
             addToCart(props.data._id, props.cartList);
           }}
         >
-          Buy!
+          COMPRAR
         </button>
       </ProductBox>
     

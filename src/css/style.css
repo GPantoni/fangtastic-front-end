@@ -8,25 +8,24 @@ a {
 }
 body {
   font-family: "Raleway", sans-serif;
-  background: #040403;
-  color: #D6C9C9;
-  padding: 20px;
+  background: #222;
+  color: #ddd;
 }
 img {
   object-fit: cover;
-  
 }
-.root {
-  width: 100%;
-  min-height: 100vh;
 
+.root {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .logo {
   font-family: 'UnifrakturCook', cursive;
   font-size: 36px;
                                                 
+}
+.box-shadow {
+  box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.3);
+
 }

@@ -9,10 +9,12 @@ export const Container = styled.div`
     gap: 20px;
 
     border-radius: 5px;
-    padding: 20px;
+    padding: 13px;
+    margin: 30px;
+    margin-top: 100px;
 
-
-    background: white;
+    background: #333;
+    box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.3);
 
     div {
         display: flex;
@@ -22,6 +24,5 @@ export const Container = styled.div`
         padding: 10px;
         height: 60px;
         border-radius: 6px;
-        box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.3);
     }
 `
