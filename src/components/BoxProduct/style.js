@@ -6,7 +6,7 @@ position: relative;
   width: 180px;
   display: flex;
   flex-direction: column;
-  padding: 13px;
+  padding: 15px; //for some reason this is not centered horizontally
   justify-content: space-between;
   align-items: center;
   background: #333;
@@ -28,14 +28,21 @@ position: relative;
     background: #7a0415;
     color: #111;
     border: none;
-    border-radius: 13px;
-    height: 20px;
+    border-radius: 15px;
+    height: 30px;
+    width: 30px;
+
+    font-size: 20px;
+    font-weight: 900;
+    color: #420d14;
     
   }
   p {
     :first-of-type {
-      font-weight: 700;
+      font-weight: 900;
+      font-size: 20px;
       margin: 13px 0;
+      
     }
     text-align: left;
   }

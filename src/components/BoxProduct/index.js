@@ -19,7 +19,7 @@ export default function BoxProduct(props) {
             addToCart(props.data._id, props.cartList);
           }}
         >
-          COMPRAR
+          +
         </button>
       </ProductBox>
     

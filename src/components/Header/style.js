@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderBox = styled.div`
 height: 70px;
 width: 100vw;
-background-color: #333;
+background-color: #80111f;
 display: flex;
 align-items: center;
 justify-content: space-between;

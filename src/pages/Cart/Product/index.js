@@ -9,10 +9,16 @@ export default function Product(props) {
     quantity = thisItem.quantity
   }
   matchQuantityToId()
-  return (<Wrapper className="wrapperDiv">
-  <img src={props.product.image}/>
+  return (
+  <Wrapper className="wrapperDiv">
+    <div className="product">
+    <img src={props.product.image}/>
     <p >{props.product.name}</p>
-    <p>R$ {props.product.price}</p>
+    
+    </div>
+    <div>
     <p>Quantidade: {quantity}</p>
-  </Wrapper>);
+    <p>R$ {props.product.price}</p></div>
+  </Wrapper>
+  );
 }

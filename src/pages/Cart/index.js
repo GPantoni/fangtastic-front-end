@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import Header from '../../components/Header';
 import Product from './Product';
-import { Container } from './style';
+import { Container, StyledLink } from './style';
 
 import api from '../../services/api';
 
@@ -39,6 +39,12 @@ export default function Cart() {
     //send ids to api
     //map res array into Product component
   }
+
+  function emptyCart() {
+    //confirm
+    //if confirm, delete user cart and localstorage cart
+  }
+
   if (!productData || !cart) {
     return '';
   }
@@ -49,7 +55,11 @@ export default function Cart() {
         {productData.map((product) => 
           <Product product={product}/>
         )}
-        <button>Prosseguir para compra</button>
+        <div>
+        <button onClick={() => emptyCart()}>Esvaziar carrinho</button>
+        <StyledLink to='/checkout'>
+        Prosseguir para compra</StyledLink>
+        </div>
       </Container>
     </>
   );
