@@ -7,4 +7,5 @@ export const Container = styled.div`
   gap: 15px;
   margin-top: 60px;
   overflow: auto;
+  padding: 10px;
 `;
