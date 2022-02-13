@@ -19,12 +19,12 @@ export default function Header({ setType, toProducts }) {
   return (
     <HeaderBox>
       {sideBar && <SideBar setSideBar={setSideBar} setType={setType} />}
-      {toProducts ? (
+      {toProducts? (
         <img src={arrow} alt="return" onClick={() => navigate("/products")} />
       ) : (
         <img src={MENU} alt="menu" onClick={() => setSideBar(true)} />
       )}
-      <h1 className='logo'>fangtastic</h1>
+      <h1 className='logo' onClick={() => navigate("/")}>fangtastic</h1>
       <img src={CART} alt="cart" onClick={() => navigate("/cart")} />
     </HeaderBox>
   );

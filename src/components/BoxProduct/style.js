@@ -5,12 +5,13 @@ position: relative;
   height: 300px;
   width: 180px;
   display: flex;
+  align-items: center;
+  text-align: center;
   flex-direction: column;
   padding: 15px; //for some reason this is not centered horizontally
   justify-content: space-between;
   align-items: center;
   background: #333;
-  margin-top: 13px;
 
   border-radius: 13px;
 
@@ -18,7 +19,7 @@ position: relative;
     display: flex;
   }
   img {
-    height: 130px;
+    height: 150px;
     width: 150px;
     border-radius: 13px;
   }

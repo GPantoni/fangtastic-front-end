@@ -9,6 +9,7 @@ export default function Cart() {
   const [productData, setProductData] = useState(null);
   const [cartIds, setCartIds] = useState([])
   useEffect(getCart, []);
+  const toProducts = true
 
   let cart = []
 
@@ -50,8 +51,8 @@ export default function Cart() {
   }
   return (
     <>
-      <Header />
-      <Container >
+      <Header toProducts={toProducts}/>
+      <Container>
         {productData.map((product) => 
           <Product product={product}/>
         )}
