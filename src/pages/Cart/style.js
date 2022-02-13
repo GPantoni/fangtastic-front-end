@@ -1,27 +1,73 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-    margin-top: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  border-radius: 13px;
+  padding: 13px;
+  margin: 30px;
+  margin-top: 100px;
+
+  background: #333;
+  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.3);
+  div {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    gap: 13px;
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 13px;
+    background: #471018;
+    :first-of-type {
+      background: #333;
+    }
+  }
+
+  .wrapperDiv {
+    display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 50px;
 
-    border-radius: 5px;
-    padding: 20px;
-
-
-    background: white;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
 
     div {
-        display: flex;
-        align-items: center;
-
-        width: 100%;
-        padding: 10px;
-        height: 60px;
-        border-radius: 6px;
-        box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.3);
+      display: block;
     }
-`
+
+    .product {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 170px;
+
+      padding: 10px;
+    }
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 13px;
+  background: #471018;
+`;

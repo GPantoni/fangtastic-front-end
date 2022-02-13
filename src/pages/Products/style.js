@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-top: 60px;
+  margin-top: 90px;
   overflow: auto;
   padding: 10px;
 `;

@@ -1,20 +1,22 @@
 import { useEffect, useState, useContext } from 'react';
 import Header from '../../components/Header';
 import Product from './Product';
-import { Container } from './style';
+import { Container, StyledLink } from './style';
 
 import api from '../../services/api';
 
 export default function Cart() {
   const [productData, setProductData] = useState(null);
+  const [cartIds, setCartIds] = useState([])
   useEffect(getCart, []);
   const toProducts = true
+
+  let cart = []
 
   function getCart() {
     //GET cart
     //if logged in, get through api
-    let cart = [];
-    const cartIds = [];
+    
     if (localStorage.getItem('cart')) {
       cart = JSON.parse(localStorage.getItem('cart'));
     }
@@ -22,7 +24,7 @@ export default function Cart() {
     cart.map((item) => {
       cartIds.push(item.id);
     });
-
+    //look i forgot to use setCartIds but if it works, it works.
     getProductData(cartIds);
 
     //else, get from localstorage
@@ -38,7 +40,13 @@ export default function Cart() {
     //send ids to api
     //map res array into Product component
   }
-  if (!productData) {
+
+  function emptyCart() {
+    //confirm
+    //if confirm, delete user cart and localstorage cart
+  }
+
+  if (!productData || !cart) {
     return '';
   }
   return (
@@ -46,9 +54,14 @@ export default function Cart() {
       <Header toProducts={toProducts}/>
       <Container>
         {productData.map((product) => 
-          Product(product)
+          <Product product={product}/>
         )}
-        <button>Prosseguir para compra</button>
+        <p>Total: R$ 0,00</p>
+        <div>
+        <button onClick={() => emptyCart()}>Esvaziar carrinho</button>
+        <StyledLink to='/checkout'>
+        Prosseguir para compra</StyledLink>
+        </div>
       </Container>
     </>
   );
