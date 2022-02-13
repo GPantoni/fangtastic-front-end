@@ -3,6 +3,8 @@ import Header from '../../components/Header';
 import Product from './Product';
 import { Container, StyledLink } from './style';
 
+//add sweetalert lib for confirm
+
 import api from '../../services/api';
 
 export default function Cart() {
@@ -24,11 +26,9 @@ export default function Cart() {
     cart.map((item) => {
       cartIds.push(item.id);
     });
-    //look i forgot to use setCartIds but if it works, it works.
+
     getProductData(cartIds);
 
-    //else, get from localstorage
-    //either way, we end up with product ids for cart
   }
 
   function getProductData(ids) {
@@ -37,8 +37,6 @@ export default function Cart() {
       setProductData(res.data);
     });
     promise.catch();
-    //send ids to api
-    //map res array into Product component
   }
 
   function emptyCart() {
