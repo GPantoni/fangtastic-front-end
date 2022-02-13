@@ -55,6 +55,7 @@ export default function Cart() {
         {productData.map((product) => 
           <Product product={product}/>
         )}
+        <p>Total: R$ 0,00</p>
         <div>
         <button onClick={() => emptyCart()}>Esvaziar carrinho</button>
         <StyledLink to='/checkout'>
