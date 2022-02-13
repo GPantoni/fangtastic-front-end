@@ -4,7 +4,7 @@ import { ProductBox } from "./style";
 import CartContext from "../../contexts/CartContext";
 
 export default function BoxProduct(props) {
-  const { cart, addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   return (
     

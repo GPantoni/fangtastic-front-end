@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderBox = styled.div`
 height: 70px;
 width: 100vw;
-background-color: #80111f;
+background-color: #c7758e;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -32,7 +32,7 @@ div {
 
   width: 13px;
   height: 13px;
-  background: green;
+  background: #80111f;
   border-radius: 50%;
 }
 `;

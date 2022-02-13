@@ -14,7 +14,7 @@ export default function Header({ setType, toProducts }) {
   const navigate = useNavigate();
   const [sideBar, setSideBar] = useState(false);
 
-  const { cart } = useContext(CartContext); //caso cart nao esteja vazio, colocar notificacao no ícone
+  const { cart } = useContext(CartContext); 
 
   return (
     <HeaderBox>
