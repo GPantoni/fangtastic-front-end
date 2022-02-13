@@ -24,4 +24,15 @@ img {
 h1 {
   font-weight: bold;
 }
+
+div {
+  position: absolute;
+  right: 10px;
+  top: 35px;
+
+  width: 13px;
+  height: 13px;
+  background: green;
+  border-radius: 50%;
+}
 `;

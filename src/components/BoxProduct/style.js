@@ -26,7 +26,7 @@ position: relative;
 
   button {
     align-self: flex-end;
-    background: #7a0415;
+    background: #000;
     color: #111;
     border: none;
     border-radius: 15px;
@@ -35,7 +35,7 @@ position: relative;
 
     font-size: 20px;
     font-weight: 900;
-    color: #420d14;
+    color: #333;
     
   }
   p {

@@ -14,7 +14,7 @@ export default function Header({ setType, toProducts }) {
   const navigate = useNavigate();
   const [sideBar, setSideBar] = useState(false);
 
-  const { cart, editCart } = useContext(CartContext); //caso cart nao esteja vazio, colocar notificacao no ícone
+  const { cart } = useContext(CartContext); //caso cart nao esteja vazio, colocar notificacao no ícone
 
   return (
     <HeaderBox>
@@ -26,6 +26,7 @@ export default function Header({ setType, toProducts }) {
       )}
       <h1 className='logo' onClick={() => navigate("/")}>fangtastic</h1>
       <img src={CART} alt="cart" onClick={() => navigate("/cart")} />
+      {cart? <div></div> : ''}
     </HeaderBox>
   );
 }

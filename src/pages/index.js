@@ -5,5 +5,6 @@ import Products from "./Products";
 import Product from "./Product";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+import AddFormOfPayment from "./AddFormOfPayment";
 
-export { Home, SignUp, SignIn, Products, Product, Cart, Checkout };
+export { Home, SignUp, SignIn, Products, Product, Cart, Checkout, AddFormOfPayment };
