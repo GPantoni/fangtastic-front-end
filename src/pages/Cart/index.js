@@ -7,13 +7,15 @@ import api from '../../services/api';
 
 export default function Cart() {
   const [productData, setProductData] = useState(null);
+  const [cartIds, setCartIds] = useState([])
   useEffect(getCart, []);
+
+  let cart = []
 
   function getCart() {
     //GET cart
     //if logged in, get through api
-    let cart = [];
-    const cartIds = [];
+    
     if (localStorage.getItem('cart')) {
       cart = JSON.parse(localStorage.getItem('cart'));
     }
@@ -21,7 +23,7 @@ export default function Cart() {
     cart.map((item) => {
       cartIds.push(item.id);
     });
-
+    //look i forgot to use setCartIds but if it works, it works.
     getProductData(cartIds);
 
     //else, get from localstorage
@@ -37,16 +39,15 @@ export default function Cart() {
     //send ids to api
     //map res array into Product component
   }
-  if (!productData) {
+  if (!productData || !cart) {
     return '';
   }
   return (
     <>
-      {console.log(productData)}
       <Header />
       <Container>
         {productData.map((product) => 
-          Product(product)
+          <Product product={product}/>
         )}
         <button>Prosseguir para compra</button>
       </Container>

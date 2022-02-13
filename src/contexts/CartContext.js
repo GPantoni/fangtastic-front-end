@@ -7,13 +7,19 @@ export function CartProvider({ children }) {
 
     function addToCart(id, cartList) {
         if(cartList.length > 0) {
+
+            if(!cartList.find(item => item.id === id)) {
+                cartList.push({id: id, quantity: 1})
+                return;
+            }
+
             cartList.map(cartItem => {
                 if(id === cartItem.id) {
                     cartItem = Object.assign(cartItem, {quantity: cartItem.quantity + 1})
-                    return;
-                }
-                cartList.push({id: id, quantity: 1})
-            })
+                    return;       
+                
+            }})
+        
         } else {
             cartList.push({id: id, quantity: 1})
         }

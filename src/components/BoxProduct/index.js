@@ -7,11 +7,13 @@ export default function BoxProduct(props) {
   const { cart, addToCart } = useContext(CartContext);
 
   return (
-    <Link to={`/product/${props.data._id}`}>
+    
       <ProductBox>
+        <Link to={`/product/${props.data._id}`}>
         <img src={props.data.image} alt="" />
         <p>{props.data.name}</p>
         <p>R${props.data.price},00</p>
+        </Link>
         <button
           onClick={() => {
             addToCart(props.data._id, props.cartList);
@@ -20,6 +22,6 @@ export default function BoxProduct(props) {
           Buy!
         </button>
       </ProductBox>
-    </Link>
+    
   );
 }
