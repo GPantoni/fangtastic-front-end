@@ -3,7 +3,6 @@ import Header from '../../components/Header';
 import Product from './Product';
 import { Container, StyledLink } from './style';
 
-//add sweetalert lib for confirm
 
 import api from '../../services/api';
 
@@ -17,8 +16,6 @@ export default function Cart() {
   let cart = []
 
   function getCart() {
-    //GET cart
-    //if logged in, get through api
     
     if (localStorage.getItem('cart')) {
       cart = JSON.parse(localStorage.getItem('cart'));
@@ -36,6 +33,7 @@ export default function Cart() {
     const promise = api.getProductsById(ids);
     promise.then((res) => {
       setProductData(res.data);
+      calculateTotal(res.data)
     });
     promise.catch();
   }
@@ -44,10 +42,17 @@ export default function Cart() {
     localStorage.removeItem('cart')
   }
 
-  function calculateTotal() {
+  function calculateTotal(items) {
     let total = 0;
-    cart.forEach(item => {
-      total += parseFloat(item.price);
+    console.log(items)
+
+    
+    items.forEach(item => {
+      const price = parseFloat(item.price)
+      console.log(cart)
+      const itemData = cart.find(cartItem => cartItem.id === item._id);
+      const quantity = parseFloat(itemData.quantity)
+      total += parseFloat(price*quantity);
     })
     setCartTotal(total);
   }
