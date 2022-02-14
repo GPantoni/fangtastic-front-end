@@ -32,8 +32,13 @@ function getProductsById(ids) {
 }
 
 function addFormOfPayment(data, token) {
-  axios.post(`${BASE_URL}/checkout`, data, {headers: { token }})
+  const promise = axios.post(`${BASE_URL}/checkout`, data, {headers: { token }})
+  return promise;
+}
 
+function getFormsOfPaymentData(token) {
+  const promise = axios.get(`${BASE_URL}/checkout`, {headers: { token }})
+  return promise;
 }
 
 
@@ -43,7 +48,8 @@ const api = {
   addToCart,
   getCart,
   getProductsById,
-  addFormOfPayment
+  addFormOfPayment,
+  getFormsOfPaymentData
 };
 
 export default api;
