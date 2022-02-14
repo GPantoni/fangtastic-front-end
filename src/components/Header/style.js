@@ -25,7 +25,7 @@ h1 {
   font-weight: bold;
 }
 
-div {
+.notification {
   position: absolute;
   right: 10px;
   top: 35px;

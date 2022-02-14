@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 //add sweetalert lib for confirm
 
 import AuthContext from '../../contexts/AuthContext';
@@ -9,6 +10,7 @@ import { Container } from './style';
 import FormOfPayment from './FormOfPayment';
 
 export default function Checkout() {
+  const navigate = useNavigate()
   const { token } = useContext(AuthContext);
   const [hide, setHide] = useState(true);
 
@@ -21,7 +23,7 @@ export default function Checkout() {
 
   function handleClickAdd(e) {
     e.preventDefault();
-    console.log('ayy lmao');
+    navigate(`/add-form-of-payment/${e.target.value}`)
   }
   function handleClickOrder() {}
   //verificar login
@@ -34,21 +36,21 @@ export default function Checkout() {
     <>
       <Header />
       <Container>
-        <form onSubmit={(e) => handleClickAdd(e)}>
+        <p>Total: </p>
+        <form>
           <p onClick={() => setHide(!hide)}>Adicionar forma de pagamento</p>
           {hide ? (
             ''
           ) : (
             <>
-              <button>Cartão de crédito</button>
-              <button>Cartão de débito</button>
-              <button>Pacto de sangue</button>
-              <button>Boleto bancário</button>
+              <button value='credit' onClick={(e) => handleClickAdd(e)}>Cartão de crédito</button>
+              <button value='blood' onClick={(e) => handleClickAdd(e)}>Pacto de sangue</button>
             </>
           )}
         </form>
 
         <FormOfPayment />
+        <FormOfPayment form='slip' />
       </Container>
     </>
   );

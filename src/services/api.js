@@ -1,14 +1,20 @@
 import axios from "axios";
 
-const BASE_URL = "https://back-fangtastic.herokuapp.com";
+//const BASE_URL = "https://back-fangtastic.herokuapp.com";
+const BASE_URL = "http://localhost:5001"
 
-function addToCart(id) {
-  console.log(id);
+async function signUp(user) {
+  await axios.post(`${BASE_URL}/sign-up`, user);
 }
 
 async function signIn(data) {
   const token = await axios.post(`${BASE_URL}/sign-in`, data);
   return token;
+}
+
+
+function addToCart(id) {
+  console.log(id);
 }
 
 function getCart() {
@@ -25,9 +31,11 @@ function getProductsById(ids) {
   return promise;
 }
 
-async function signUp(user) {
-  await axios.post(`${BASE_URL}/sign-up`, user);
+function addFormOfPayment(data, token) {
+  axios.post(`${BASE_URL}/checkout`, data, {headers: { token }})
+
 }
+
 
 const api = {
   signUp,
@@ -35,6 +43,7 @@ const api = {
   addToCart,
   getCart,
   getProductsById,
+  addFormOfPayment
 };
 
 export default api;

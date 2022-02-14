@@ -40,8 +40,11 @@ export default function Cart() {
   }
 
   function emptyCart() {
-    //confirm
-    //if confirm, delete user cart and localstorage cart
+    localStorage.removeItem('cart')
+  }
+
+  function calculateTotal() {
+    //pegar do mywallet
   }
 
   if (!productData || !cart) {

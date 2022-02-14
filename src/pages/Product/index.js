@@ -40,8 +40,9 @@ export default function Product() {
           <AddButton onClick={() => setCont(cont + 1)}>+</AddButton>
         </Amount>
         <button
-          onClick={() => console.log(`Voce comprou ${cont} ${product.name}, totalizando R$${product.price*cont},00`)}
-        >
+         onClick={() => {
+          addToCart(props.data._id, props.cartList, cont);
+        }}>
           Comprar
         </button>
       </Container>
@@ -55,7 +56,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #835dba;
+  background-color: #333;
   gap: 10px;
   img {
     margin-top: 70px;
