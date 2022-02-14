@@ -1,13 +1,16 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useReducer } from 'react';
 import Header from '../../components/Header';
 import Product from './Product';
 import { Container, StyledLink } from './style';
+
+//add sweetalert lib for confirm
 
 import api from '../../services/api';
 
 export default function Cart() {
   const [productData, setProductData] = useState(null);
   const [cartIds, setCartIds] = useState([])
+  const [cartTotal, setCartTotal] = useState(0)
   useEffect(getCart, []);
   const toProducts = true
 
@@ -24,11 +27,9 @@ export default function Cart() {
     cart.map((item) => {
       cartIds.push(item.id);
     });
-    //look i forgot to use setCartIds but if it works, it works.
+
     getProductData(cartIds);
 
-    //else, get from localstorage
-    //either way, we end up with product ids for cart
   }
 
   function getProductData(ids) {
@@ -37,13 +38,18 @@ export default function Cart() {
       setProductData(res.data);
     });
     promise.catch();
-    //send ids to api
-    //map res array into Product component
   }
 
   function emptyCart() {
-    //confirm
-    //if confirm, delete user cart and localstorage cart
+    localStorage.removeItem('cart')
+  }
+
+  function calculateTotal() {
+    let total = 0;
+    cart.forEach(item => {
+      total += parseFloat(item.price);
+    })
+    setCartTotal(total);
   }
 
   if (!productData || !cart) {
@@ -56,7 +62,7 @@ export default function Cart() {
         {productData.map((product) => 
           <Product product={product}/>
         )}
-        <p>Total: R$ 0,00</p>
+        <p>Total: R$ {cartTotal}</p>
         <div>
         <button onClick={() => emptyCart()}>Esvaziar carrinho</button>
         <StyledLink to='/checkout'>

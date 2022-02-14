@@ -42,7 +42,7 @@ export default function SignIn() {
 
   return (
     <Container>
-      <Title>FangTastic</Title>
+      <Title className="logo">fangtastic</Title>
       <Form onSubmit={handleSubmit}>
         <Input
           placeholder="E-mail"

@@ -1,14 +1,17 @@
 import axios from "axios";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../../components/Header";
+import CartContext from "../../contexts/CartContext";
 
 export default function Product() {
   const [product, setProduct] = useState({});
   const [cont, setCont] = useState(0);
   const { idProduct } = useParams();
   const toProducts = true;
+  const { addToCart } = useContext(CartContext)
+  const cartList = JSON.parse(localStorage.getItem('cart'))
 
   useEffect(() => {
     const promise = axios.get("https://back-fangtastic.herokuapp.com/product", {
@@ -40,8 +43,9 @@ export default function Product() {
           <AddButton onClick={() => setCont(cont + 1)}>+</AddButton>
         </Amount>
         <button
-          onClick={() => console.log(`Voce comprou ${cont} ${product.name}, totalizando R$${product.price*cont},00`)}
-        >
+         onClick={() => {
+          addToCart(product, cartList, cont);
+        }}>
           Comprar
         </button>
       </Container>
@@ -55,7 +59,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #835dba;
+  background-color: #333;
   gap: 10px;
   img {
     margin-top: 70px;

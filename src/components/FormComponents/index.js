@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  background: #3b035b;
+  background: #333;
 `;
 
 const Form = styled.form`
