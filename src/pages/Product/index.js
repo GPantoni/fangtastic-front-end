@@ -11,6 +11,7 @@ export default function Product() {
   const { idProduct } = useParams();
   const toProducts = true;
   const { addToCart } = useContext(CartContext)
+
   const cartList = JSON.parse(localStorage.getItem('cart'))
 
   useEffect(() => {

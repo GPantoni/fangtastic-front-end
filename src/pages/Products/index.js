@@ -7,15 +7,17 @@ import { Container } from "./style";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState("");
-  let cartList = [];
+  const [cartList, setCartList] = useState([])
 
   function checkCart() {
     if (localStorage.getItem("cart")) {
-      cartList = JSON.parse(localStorage.getItem("cart"));
+      setCartList(JSON.parse(localStorage.getItem("cart")))
     }
   }
+  
 
   useEffect(() => {
+    checkCart();
     const promise = axios.get("https://back-fangtastic.herokuapp.com/products", {
       headers: {
         Type: `${type}`,
@@ -25,9 +27,10 @@ export default function Products() {
       setProducts(response.data);
     });
     promise.catch((error) => console.log(error.response));
+
   }, [type]);
 
-  checkCart();
+  
 
   return (
     <>

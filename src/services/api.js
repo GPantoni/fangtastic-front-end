@@ -15,9 +15,9 @@ function addToCart(id) {
   console.log(id);
 }
 
-function getCart() {
-  //se tem token, pegar pelo token
-  //senão, pegar pelo localstorage (nesse cason, nenhuma req é feita)
+function getCart(token) {
+  const promise = axios.get(`${BASE_URL}/cart`, { headers: { token } });
+  return promise;
 }
 
 function getProductsById(ids) {

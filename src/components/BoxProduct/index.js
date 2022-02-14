@@ -16,6 +16,7 @@ export default function BoxProduct(props) {
         </Link>
         <button
           onClick={() => {
+
             addToCart(props.data._id, props.cartList);
           }}
         >
