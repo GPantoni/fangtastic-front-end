@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import vamp from "../../assets/vamp-bg.jpg";
+import HOME from '../../assets/home.jpg'
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
@@ -23,7 +24,8 @@ export default function Home() {
 const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
-  background-image: url(${vamp});
+  background-image: url(${HOME});
+  background-position: center;
   background-size: cover;
 
   display:flex;
@@ -32,7 +34,9 @@ const Container = styled.div`
   align-items: center;
   h1{
     position: fixed;
-    top:50%;
+    .logo {
+      font-size: 64px;
+    }
   }
   div{
     display: flex;

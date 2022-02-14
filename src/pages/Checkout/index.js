@@ -1,7 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-//add sweetalert lib for confirm
+import { useNavigate, Link} from 'react-router-dom';
 
 import AuthContext from '../../contexts/AuthContext';
 
@@ -31,7 +29,6 @@ export default function Checkout() {
     e.preventDefault();
     navigate(`/add-form-of-payment/${e.target.value}`);
   }
-  function handleClickOrder() {}
 
   if (!token) {
     return (
@@ -68,6 +65,7 @@ export default function Checkout() {
         {formsOfPayment.map((data) => (
           <FormOfPayment {...data} />
         ))}
+        <FormOfPayment />
       </Container>
     </>
   );

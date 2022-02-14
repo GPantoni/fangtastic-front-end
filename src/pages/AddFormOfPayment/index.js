@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import { Container } from './style';
@@ -9,6 +10,7 @@ import AuthContext from '../../contexts/AuthContext';
 import api from '../../services/api';
 
 export default function AddFormOfPayment() {
+  const navigate = useNavigate()
   const form = useParams().form;
   const { token } = useContext(AuthContext)
   console.log(token) //OK
@@ -37,9 +39,11 @@ export default function AddFormOfPayment() {
   function handleSubmit(e) {
     e.preventDefault();
     if (form === 'credit') {
-      api.addFormOfPayment({ type: form, cardData}, token);
+      const promise = api.addFormOfPayment({ type: form, cardData}, token);
+      promise.then(navigate('/checkout'))
     } else {
-      api.addFormOfPayment({type: form, pledgeData}, token)
+      const promise = api.addFormOfPayment({type: form, pledgeData}, token)
+      promise.then(navigate('/checkout'))
     }
 
   }
