@@ -14,6 +14,7 @@ export default function SideBar({ setType, setSideBar }) {
         <p onClick={() => handleFilter("vestuario")}>Vestuario</p>
         <p onClick={() => handleFilter("comida")}>Comidas</p>
         <p onClick={() => handleFilter("acessorio")}>Acessorios</p>
+        <p onClick={() => handleFilter("service")}>Serviços</p>
       </Left>
       <Right onClick={() => setSideBar(false)}></Right>
     </SideBarBox>

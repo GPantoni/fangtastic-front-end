@@ -1,4 +1,3 @@
-import { findDOMNode } from "react-dom";
 import { Wrapper } from "./style";
 
 export default function Product(props) {
@@ -6,7 +5,7 @@ export default function Product(props) {
   let quantity = 0
   function matchQuantityToId() {
     if(localStorage.getItem('cart') && props.product) {
-      const thisItem = (JSON.parse(localStorage.getItem('cart'))).find(item => item.id == props.product._id) //will have to change to props once cart is acquired through login token
+      const thisItem = (JSON.parse(localStorage.getItem('cart'))).find(item => item.id === props.product._id) //will have to change to props once cart is acquired through login token
       quantity = thisItem.quantity
     }
     
@@ -16,7 +15,7 @@ export default function Product(props) {
   props.product ? 
   <Wrapper className="wrapperDiv">
   <div className="product">
-  <img src={props.product.image}/>
+  <img src={props.product.image} alt="product" />
   <p >{props.product.name}</p>
   
   </div>

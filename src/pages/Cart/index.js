@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useReducer } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Product from './Product';
 import { Container, StyledLink } from './style';
@@ -22,6 +22,7 @@ export default function Cart() {
     
     if (localStorage.getItem('cart')) {
       cart = JSON.parse(localStorage.getItem('cart'));
+      console.log(cart)
     }
 
     cart.map((item) => {
@@ -35,6 +36,7 @@ export default function Cart() {
   function getProductData(ids) {
     const promise = api.getProductsById(ids);
     promise.then((res) => {
+
       setProductData(res.data);
     });
     promise.catch();

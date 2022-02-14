@@ -14,23 +14,18 @@ export function CartProvider({ children }) {
                 localStorage.setItem('cart', JSON.stringify(cartList))
                 
             } else {
-                cartList.map(cartItem => {
+                cartList.forEach(cartItem => {
                     if(id === cartItem.id) {
                         cartItem = Object.assign(cartItem, {quantity: cartItem.quantity + quantity})
                         console.log('to aqui')
                         return;       
-                    
                 }})
             }
-
-            
-        
         } else {
             cartList.push({id: id, quantity})
         }
         setCart(cartList)
         localStorage.setItem('cart', JSON.stringify(cartList))
-        console.log('CART: ' + localStorage.getItem('cart')) 
         quantity = 1;       
 
     }
