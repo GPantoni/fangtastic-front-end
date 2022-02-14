@@ -50,8 +50,6 @@ export default function Product() {
         </Amount>
         <button
          onClick={() => {
-
-           console.log(cartList)
           addToCart(product._id, cartList, cont);
         }}>
           Comprar
@@ -68,9 +66,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #333;
-  gap: 10px;
+  gap: 5px;
   img {
-    margin-top: 70px;
+    margin-top: 90px;
+    border-radius: 13px;
+    margin-bottom: 15px;
     width: 300px;
     height: 300px;
     background-color: white;

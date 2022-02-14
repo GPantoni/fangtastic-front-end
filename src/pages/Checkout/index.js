@@ -13,10 +13,11 @@ export default function Checkout() {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
   const [hide, setHide] = useState(true);
-
+  const {price} = useContext(AuthContext)
+  const toProducts = true;
   const [formsOfPayment, setFormsOfPayment] = useState(null);
 
-  useEffect(getFormsOfPayment, []);
+  useEffect(getFormsOfPayment, [token]);
 
   function getFormsOfPayment() {
     if (token) {
@@ -49,9 +50,9 @@ export default function Checkout() {
 
   return (
     <>
-      <Header />
+      <Header toProducts={toProducts}/>
       <Container>
-        <p>Total: </p>
+        <p>Total: R${price},00</p>
         <form>
           <p onClick={() => setHide(!hide)}>Adicionar forma de pagamento</p>
           {hide ? (
