@@ -45,11 +45,7 @@ const Container = styled.div`
     gap: 10px;
   }
   button{
-    background-color: #933611;
-    border-radius: 15px; 
-    font-weight: bold;
-    color: white;
-    border: solid white 1px;
+
 
   }
 `;
