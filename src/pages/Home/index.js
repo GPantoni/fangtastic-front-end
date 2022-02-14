@@ -34,6 +34,7 @@ const Container = styled.div`
   align-items: center;
   h1{
     position: fixed;
+    top: 33vh;
     .logo {
       font-size: 64px;
     }
@@ -43,9 +44,5 @@ const Container = styled.div`
     flex-direction: column;
     margin-top: 350px;
     gap: 10px;
-  }
-  button{
-
-
   }
 `;
