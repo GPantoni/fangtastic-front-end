@@ -40,6 +40,7 @@ export default function Cart() {
 
   function emptyCart() {
     localStorage.removeItem('cart')
+    setCartIds('')
   }
 
   function calculateTotal(items) {

@@ -51,7 +51,6 @@ export default function Checkout() {
     <>
       <Header />
       <Container>
-        <p>Total: </p>
         <form>
           <p onClick={() => setHide(!hide)}>Adicionar forma de pagamento</p>
           {hide ? (
