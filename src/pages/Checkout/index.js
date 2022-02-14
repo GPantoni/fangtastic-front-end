@@ -32,10 +32,15 @@ export default function Checkout() {
 
   if (!token) {
     return (
+      <>
+      <Header />
+      <Container>
       <p>
-        Por favor, <Link to='sign-in'>faça login</Link> ou{' '}
-        <Link to='sign-up'>cadastre-se</Link>.
+        Por favor, <Link to='/sign-in'>faça login</Link> ou{' '}
+        <Link to='/sign-up'>cadastre-se</Link>.
       </p>
+      </Container>
+      </>
     );
   }
   if (!formsOfPayment) {
