@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-//const BASE_URL = "https://back-fangtastic.herokuapp.com";
-const BASE_URL = 'http://localhost:5001';
+const BASE_URL = "https://back-fangtastic.herokuapp.com";
 
 async function signUp(user) {
   await axios.post(`${BASE_URL}/sign-up`, user);
