@@ -1,7 +1,4 @@
-import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "../../components/Header";
-import vamp from "../../assets/vamp-bg.jpg";
 import HOME from '../../assets/home.jpg'
 import { useNavigate } from 'react-router-dom';
 

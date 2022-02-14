@@ -17,7 +17,7 @@ export const Container = styled.div`
     padding: 13px;
     background: #333;
     :hover {
-      background: pink;
+      background: #8fc4d9;
     }
   }
 
