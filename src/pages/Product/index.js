@@ -8,13 +8,18 @@ import CartContext from "../../contexts/CartContext";
 export default function Product() {
   const [product, setProduct] = useState({});
   const [cont, setCont] = useState(0);
+
   const { idProduct } = useParams();
   const toProducts = true;
+
   const { addToCart } = useContext(CartContext)
+  const [cartList, setCartList] = useState([])
 
-  const cartList = JSON.parse(localStorage.getItem('cart'))
-
+  
   useEffect(() => {
+    if(JSON.parse(localStorage.getItem('cart'))){
+      setCartList(JSON.parse(localStorage.getItem('cart')));
+    }
     const promise = axios.get("https://back-fangtastic.herokuapp.com/product", {
       headers: {
         id: `${idProduct}`,
@@ -45,7 +50,9 @@ export default function Product() {
         </Amount>
         <button
          onClick={() => {
-          addToCart(product, cartList, cont);
+
+           console.log(cartList)
+          addToCart(product._id, cartList, cont);
         }}>
           Comprar
         </button>
