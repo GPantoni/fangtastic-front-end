@@ -17,6 +17,7 @@ position: relative;
 
   div {
     display: flex;
+    
   }
   img {
     height: 150px;
@@ -36,9 +37,14 @@ position: relative;
     font-size: 20px;
     font-weight: 900;
     color: #333;
+
+    margin: 0;
+    padding: 0;
     
   }
   p {
+    margin: 0;
+    padding: 0;
     :first-of-type {
       font-weight: 900;
       font-size: 20px;
