@@ -21,5 +21,13 @@ export const Container = styled.div`
     }
   }
 
+  p {
+    text-align: center;
+    padding: 13px;
+    background: #666;
+    width: 100%;
+    border-radius: 13px;
+  }
+
 
 `;
