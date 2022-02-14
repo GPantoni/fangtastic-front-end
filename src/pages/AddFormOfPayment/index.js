@@ -72,6 +72,7 @@ export default function AddFormOfPayment() {
                   onChange={(e) => handleChange(e)}
                 />
                 <input
+                type='password'
                   placeholder='Código de segurança'
                   name='securityCode'
                   value={cardData.securityCode}
