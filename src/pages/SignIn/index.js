@@ -42,7 +42,7 @@ export default function SignIn() {
 
   return (
     <Container>
-      <Title className="logo">fangtastic</Title>
+      <Title className="logo" onClick={() => navigate('/')}>fangtastic</Title>
       <Form onSubmit={handleSubmit}>
         <Input
           placeholder="E-mail"
