@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useReducer } from 'react';
 import Header from '../../components/Header';
 import Product from './Product';
 import { Container, StyledLink } from './style';
@@ -10,6 +10,7 @@ import api from '../../services/api';
 export default function Cart() {
   const [productData, setProductData] = useState(null);
   const [cartIds, setCartIds] = useState([])
+  const [cartTotal, setCartTotal] = useState(0)
   useEffect(getCart, []);
   const toProducts = true
 
@@ -44,7 +45,11 @@ export default function Cart() {
   }
 
   function calculateTotal() {
-    //pegar do mywallet
+    let total = 0;
+    cart.forEach(item => {
+      total += parseFloat(item.price);
+    })
+    setCartTotal(total);
   }
 
   if (!productData || !cart) {
@@ -57,7 +62,7 @@ export default function Cart() {
         {productData.map((product) => 
           <Product product={product}/>
         )}
-        <p>Total: R$ 0,00</p>
+        <p>Total: R$ {cartTotal}</p>
         <div>
         <button onClick={() => emptyCart()}>Esvaziar carrinho</button>
         <StyledLink to='/checkout'>
