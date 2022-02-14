@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProductBox = styled.div`
 position: relative;
   height: 300px;
-  width: 180px;
+  width: 170px;
   display: flex;
   align-items: center;
   text-align: center;

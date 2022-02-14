@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
@@ -13,22 +12,17 @@ export function CartProvider({ children }) {
                 localStorage.setItem('cart', JSON.stringify(cartList))
                 
             } else {
-                cartList.map(cartItem => {
+                cartList.forEach(cartItem => {
                     if(id === cartItem.id) {
                         cartItem = Object.assign(cartItem, {quantity: cartItem.quantity + quantity})
                         return;       
-                    
                 }})
             }
-
-            
-        
         } else {
             cartList.push({id: id, quantity})
         }
         setCart(cartList)
         localStorage.setItem('cart', JSON.stringify(cartList))
-
         quantity = 1;       
 
     }

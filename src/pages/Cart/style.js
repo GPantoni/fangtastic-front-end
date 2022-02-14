@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   margin-top: 50px;
@@ -8,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-size: 16px;
 
   border-radius: 13px;
   padding: 13px;
@@ -28,6 +28,9 @@ export const Container = styled.div`
     border: none;
     border-radius: 13px;
     background: #471018;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
     :first-of-type {
       background: #333;
     }
@@ -59,7 +62,7 @@ export const Container = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
